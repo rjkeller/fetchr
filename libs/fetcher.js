@@ -272,7 +272,8 @@ Fetcher.getService = function (name) {
  * @returns {Boolean} true if service with name was registered
  */
 Fetcher.isRegistered = function (name) {
-    return name && Fetcher.services[name.split('.')[0]];
+    var nameParams = name.split('.');
+    return name && nameParams.length <= 2 && Fetcher.services[nameParams[0]];
 };
 
 /**
